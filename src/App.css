@@ -11,9 +11,31 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
+    padding-bottom: 30px;
 }
 
 .title {
     color: black;
     letter-spacing: 3px;
+}
+
+.btn {
+    padding: 10px;
+}
+
+.counter-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-value {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-input {
+    color: #1b1414;
+    font-weight: bold;
+    margin: 18px 0 7px 0;
 }
