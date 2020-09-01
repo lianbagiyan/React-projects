@@ -29,8 +29,8 @@ class App extends Component {
   };
 
   handleReset = () => {
-    this.setState(() => ({
-      count: 0,
+    this.setState((prevState) => ({
+      count: 0 || prevState.minValue,
     }));
   };
 
@@ -43,6 +43,11 @@ class App extends Component {
   handleMinValue = ({target: {value}}) => {
     if(value < 0) {
       value = 0;
+    }
+
+    if(value > this.state.maxValue) {
+      alert(`Stop. You need to write number less ${this.state.maxValue}`)
+      value = this.state.maxValue
     }
 
     this.setState({
@@ -75,6 +80,7 @@ class App extends Component {
             <Button
               text="-" 
               onClick={this.handleDec}
+              disabled={this.state.count <= 0 ? true: false}
             />
             <Button 
               text="Reset" 
@@ -83,6 +89,7 @@ class App extends Component {
             <Button 
               text="+" 
               onClick={this.handleInc} 
+              disabled={this.state.count >= this.state.maxValue ? true: false}
             />
           </div>
         </div>
