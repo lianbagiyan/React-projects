@@ -4,11 +4,13 @@ import "./App.css";
 import Button from "./components/Button/Button";
 import Input from "./components/Input/Input";
 
+const nativeState = JSON.parse(window.localStorage.getItem('state'));
+
 class App extends Component {
   constructor(props) {
     super(props);
 
-    this.state = {
+    this.state = nativeState || {
       count: 0,
       step: 1,
       minValue: 0,
@@ -71,6 +73,9 @@ class App extends Component {
   };
 
   render() {
+    const memory = window.localStorage;
+    memory.setItem('state', JSON.stringify(this.state));
+
     return (
       <div className="container">
         <h3 className="title">My first project in React. Hope you like it!</h3>
