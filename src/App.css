@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 800px;
+    height: 500px;
+    background-color: brown;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 30px;
+}
+
+.title {
+    color: black;
+    letter-spacing: 3px;
+}
+
+.btn {
+    padding: 10px;
+}
+
+.counter-body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.counter-value {
+    display: flex;
+    flex-direction: column;
+}

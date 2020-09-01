@@ -1,0 +1,18 @@
+.inputLine {
+    width: 250px;
+    height: 25px;
+    padding: 5px 15px;
+    letter-spacing: 2px;
+    border: none;
+}
+
+.titleInput {
+    color: #1b1414;
+    font-weight: bold;
+    margin: 18px 0 7px 0;
+}
+
+.inputContainer {
+    display: flex;
+    flex-direction: column;
+}
