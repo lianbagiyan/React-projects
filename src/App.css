@@ -33,9 +33,3 @@ body {
     display: flex;
     flex-direction: column;
 }
-
-.title-input {
-    color: #1b1414;
-    font-weight: bold;
-    margin: 18px 0 7px 0;
-}

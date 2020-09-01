@@ -11,6 +11,8 @@ class App extends Component {
     this.state = {
       count: 0,
       step: 1,
+      minValue: 0,
+      maxValue: 100
     };
   }
 
@@ -30,6 +32,23 @@ class App extends Component {
     this.setState(() => ({
       count: 0,
     }));
+  };
+
+  handleMaxValue = ({target: { value }}) => {
+    this.setState({
+      maxValue: Number(value),
+    });
+  };
+
+  handleMinValue = ({target: {value}}) => {
+    if(value < 0) {
+      value = 0;
+    }
+
+    this.setState({
+      minValue: Number(value),
+      count: Number(value),
+    });
   };
 
   handleAddBy = (e) => {
@@ -53,18 +72,39 @@ class App extends Component {
         <div className="counter-body">
           <h1>{this.state.count}</h1>
           <div className="btn-action">
-            <Button text="-" onClick={this.handleDec} />
-            <Button text="Reset" onClick={this.handleReset} />
-            <Button text="+" onClick={this.handleInc} />
+            <Button
+              text="-" 
+              onClick={this.handleDec}
+            />
+            <Button 
+              text="Reset" 
+              onClick={this.handleReset} 
+            />
+            <Button 
+              text="+" 
+              onClick={this.handleInc} 
+            />
           </div>
         </div>
         <div className="counter-value">
-          <label className='title-input'>Maximal Value</label>
-          <Input type='number' placeholder="max value.." />
-          <label className='title-input'>Minimal Value</label>
-          <Input type='number' placeholder="min value.." />
-          <label className='title-input'>Step</label>
-          <Input type="number" placeholder="1" onChange={this.handleAddBy} />
+          <Input 
+            placeholder="max value.." 
+            onChange={this.handleMaxValue} 
+            labelText='Maximal Value'
+            value={this.state.maxValue}
+          />
+          <Input 
+            placeholder="min value.." 
+            onChange={this.handleMinValue} 
+            labelText='Minimal Value'
+            value={this.state.minValue}
+          />
+          <Input 
+            placeholder="1" 
+            onChange={this.handleAddBy} 
+            labelText='Step'
+            value={this.state.step}
+          />
         </div>
       </div>
     );
