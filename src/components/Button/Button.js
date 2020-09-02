@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Button.module.css";
-import PropTypes from 'prop-types';
+import PropTypes from "prop-types";
 
 export default function Button(props) {
   return (
@@ -15,5 +15,5 @@ export default function Button(props) {
 }
 
 Button.propTypes = {
-	disabled: PropTypes.bool,
+  disabled: PropTypes.bool,
 };
