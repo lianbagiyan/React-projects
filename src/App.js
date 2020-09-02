@@ -4,7 +4,7 @@ import "./App.css";
 import Button from "./components/Button/Button";
 import Input from "./components/Input/Input";
 
-const nativeState = JSON.parse(window.localStorage.getItem('state'));
+const nativeState = JSON.parse(window.localStorage.getItem("state"));
 
 class App extends Component {
   constructor(props) {
@@ -14,7 +14,7 @@ class App extends Component {
       count: 0,
       step: 1,
       minValue: 0,
-      maxValue: 100
+      maxValue: 100,
     };
   }
 
@@ -36,20 +36,20 @@ class App extends Component {
     }));
   };
 
-  handleMaxValue = ({target: { value }}) => {
+  handleMaxValue = ({ target: { value } }) => {
     this.setState({
       maxValue: Number(value),
     });
   };
 
-  handleMinValue = ({target: {value}}) => {
-    if(value < 0) {
+  handleMinValue = ({ target: { value } }) => {
+    if (value < 0) {
       value = 0;
     }
 
-    if(value > this.state.maxValue) {
-      alert(`Stop. You need to write number less ${this.state.maxValue}`)
-      value = this.state.maxValue
+    if (value > this.state.maxValue) {
+      alert(`Stop. You need to write number less ${this.state.maxValue}`);
+      value = this.state.maxValue;
     }
 
     this.setState({
@@ -74,7 +74,7 @@ class App extends Component {
 
   render() {
     const memory = window.localStorage;
-    memory.setItem('state', JSON.stringify(this.state));
+    memory.setItem("state", JSON.stringify(this.state));
 
     return (
       <div className="container">
@@ -83,38 +83,35 @@ class App extends Component {
           <h1>{this.state.count}</h1>
           <div className="btn-action">
             <Button
-              text="-" 
+              text="-"
               onClick={this.handleDec}
-              disabled={this.state.count <= 0 ? true: false}
+              disabled={this.state.count <= 0 ? true : false}
             />
-            <Button 
-              text="Reset" 
-              onClick={this.handleReset} 
-            />
-            <Button 
-              text="+" 
-              onClick={this.handleInc} 
-              disabled={this.state.count >= this.state.maxValue ? true: false}
+            <Button text="Reset" onClick={this.handleReset} />
+            <Button
+              text="+"
+              onClick={this.handleInc}
+              disabled={this.state.count >= this.state.maxValue ? true : false}
             />
           </div>
         </div>
         <div className="counter-value">
-          <Input 
-            placeholder="max value.." 
-            onChange={this.handleMaxValue} 
-            labelText='Maximal Value'
+          <Input
+            placeholder="max value.."
+            onChange={this.handleMaxValue}
+            labelText="Maximal Value"
             value={this.state.maxValue}
           />
-          <Input 
-            placeholder="min value.." 
-            onChange={this.handleMinValue} 
-            labelText='Minimal Value'
+          <Input
+            placeholder="min value.."
+            onChange={this.handleMinValue}
+            labelText="Minimal Value"
             value={this.state.minValue}
           />
-          <Input 
-            placeholder="1" 
-            onChange={this.handleAddBy} 
-            labelText='Step'
+          <Input
+            placeholder="1"
+            onChange={this.handleAddBy}
+            labelText="Step"
             value={this.state.step}
           />
         </div>
