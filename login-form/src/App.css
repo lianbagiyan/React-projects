@@ -1,3 +1,7 @@
+* {
+    overflow: hidden;
+}
+
 .wrapper {
     height: 100vh;
     width: 100%;
@@ -5,7 +9,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #258ea6;
+    background-color: #607D8B;
 }
   
 .form-wrapper {
