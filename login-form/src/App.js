@@ -9,12 +9,12 @@ const formValid = ({ formErrors, ...rest }) => {
   let valid = true;
 
   // validate form errors being empty
-  Object.values(formErrors).forEach(val => {
+  Object.values(formErrors).forEach((val) => {
     val.length > 0 && (valid = false);
   });
 
   // validate the form was filled out
-  Object.values(rest).forEach(val => {
+  Object.values(rest).forEach((val) => {
     val === null && (valid = false);
   });
 
@@ -31,15 +31,15 @@ class App extends Component {
       email: null,
       password: null,
       formErrors: {
-        firstName: '',
-        lastName: '',
-        email: '',
-        password: '',
-      }
-    }
+        firstName: "",
+        lastName: "",
+        email: "",
+        password: "",
+      },
+    };
   }
 
-  handleSubmit = e => {
+  handleSubmit = (e) => {
     e.preventDefault();
 
     if (formValid(this.state)) {
@@ -54,7 +54,7 @@ class App extends Component {
     }
   };
 
-  handleChange = e => {
+  handleChange = (e) => {
     e.preventDefault();
     const { name, value } = e.target;
     let formErrors = { ...this.state.formErrors };
@@ -86,6 +86,8 @@ class App extends Component {
 
   render() {
     const { formErrors } = this.state;
+    let inputLine = document.getElementsByClassName("input-line");
+    localStorage.setItem("email", inputLine.value);
 
     return (
       <div className="wrapper">
@@ -95,7 +97,9 @@ class App extends Component {
             <div className="firstName">
               <label htmlFor="firstName">First Name</label>
               <input
-                className=''
+                className={
+                  formErrors.firstName.length > 0 ? "error" : "input-line"
+                }
                 placeholder="First Name"
                 type="text"
                 name="firstName"
@@ -108,7 +112,9 @@ class App extends Component {
             <div className="lastName">
               <label htmlFor="lastName">Last Name</label>
               <input
-                className=''
+                className={
+                  formErrors.lastName.length > 0 ? "error" : "input-line"
+                }
                 placeholder="Last Name"
                 type="text"
                 name="lastName"
@@ -121,7 +127,7 @@ class App extends Component {
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
-                className=''
+                className={formErrors.email.length > 0 ? "error" : "input-line"}
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -134,7 +140,9 @@ class App extends Component {
             <div className="password">
               <label htmlFor="password">Password</label>
               <input
-                className=''
+                className={
+                  formErrors.password.length > 0 ? "error" : "input-line"
+                }
                 placeholder="Password"
                 type="password"
                 name="password"
