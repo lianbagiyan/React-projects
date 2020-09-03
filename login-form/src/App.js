@@ -86,6 +86,8 @@ class App extends Component {
 
   render() {
     const { formErrors } = this.state;
+    let inputLine= document.getElementsByClassName('input-line');
+    localStorage.setItem("email", inputLine.value);
 
     return (
       <div className="wrapper">
@@ -95,7 +97,7 @@ class App extends Component {
             <div className="firstName">
               <label htmlFor="firstName">First Name</label>
               <input
-                className=''
+                className={formErrors.firstName.length > 0 ? "error" : 'input-line'}
                 placeholder="First Name"
                 type="text"
                 name="firstName"
@@ -108,7 +110,7 @@ class App extends Component {
             <div className="lastName">
               <label htmlFor="lastName">Last Name</label>
               <input
-                className=''
+                className={formErrors.lastName.length > 0 ? "error" : 'input-line'}
                 placeholder="Last Name"
                 type="text"
                 name="lastName"
@@ -121,7 +123,7 @@ class App extends Component {
             <div className="email">
               <label htmlFor="email">Email</label>
               <input
-                className=''
+                className={formErrors.email.length > 0 ? "error" : 'input-line'}
                 placeholder="Email"
                 type="email"
                 name="email"
@@ -134,7 +136,7 @@ class App extends Component {
             <div className="password">
               <label htmlFor="password">Password</label>
               <input
-                className=''
+                className={formErrors.password.length > 0 ? "error" : 'input-line'}
                 placeholder="Password"
                 type="password"
                 name="password"
