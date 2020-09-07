@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-import PropTypes from "prop-types";
 import "./App.css";
 
 const emailRegex = RegExp(
@@ -51,7 +50,7 @@ class App extends Component {
         Password: ${this.state.password}
       `);
     } else {
-      console.error("FORM INVALID - ERROR MESSAGE");
+      alert("FORM INVALID - ERROR MESSAGE");
     }
   };
 
@@ -162,11 +161,6 @@ class App extends Component {
       </div>
     );
   }
-}
-
-App.propTypes = {
-  firstName: PropTypes.string,
-  lastName: PropTypes.string
 }
 
 export default App;
